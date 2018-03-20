@@ -1,0 +1,5 @@
+npm live-server is alreaddy installed globally. 
+To run it just type: "live-server"
+
+To run the scss watcher, go to the project root folder in a new terminal tab and run
+"npm run compile:sass"
