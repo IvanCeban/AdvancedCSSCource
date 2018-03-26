@@ -131,6 +131,44 @@
                             <div class="overview__rating-count">429 votes</div>
                         </div>
                     </div>
+
+                    <div class="detail">
+                        <div class="description">
+                            <p class="paragraph">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi nisi dignissimos debitis ratione sapiente saepe. Accusantium cumque, quas, ut corporis incidunt deserunt quae architecto voluptate.
+                            </p>
+                            <p class="paragraph">
+                                Accusantium cumque, quas, ut corporis incidunt deserunt quae architecto voluptate delectus, inventore iure aliquid aliquam.
+                            </p>
+                            <ul class="list">
+                                <li class="list__item">CLose to the beach</li>
+                                <li class="list__item">Breakfast included</li>
+                                <li class="list__item">Free airport shuttle</li>
+                                <li class="list__item">Free wifi in all rooms</li>
+                                <li class="list__item">Air conditioning and heating</li>
+                                <li class="list__item">Pets allowed</li>
+                                <li class="list__item">We speak your language</li>
+                                <li class="list__item">Perfect for families</li>
+                            </ul>
+                            <div class="recommend">
+                                <p class="recommend__count">
+                                    Lucy and 3 other friend recommend this hotel.
+                                </p>
+                                <div class="recommend__friends">
+                                    <img src="img/user-3.jpg" alt="Friend 1" class="recommend__photo">
+                                    <img src="img/user-4.jpg" alt="Friend 2" class="recommend__photo">
+                                    <img src="img/user-5.jpg" alt="Friend 3" class="recommend__photo">
+                                    <img src="img/user-6.jpg" alt="Friend 4" class="recommend__photo">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="user-reviews">
+                            User reviews
+                        </div>
+                    </div>
+
+
                 </main>
             </div>
         </div>
@@ -332,6 +370,41 @@
                 'Screen Size: ' + jscd.screen + '\n\n' +
                 'Full User Agent: ' + navigator.userAgent
             );
+        </script>
+
+        <script>
+            // Let's initialize the primitives
+            var startTime, endTime, fileSize;
+
+            // Set up the AJAX to perform
+            var xhr = new XMLHttpRequest();
+
+            // Rig the call-back... THE important part
+            xhr.onreadystatechange = function () {
+
+                // we only need to know when the request has completed
+                if (xhr.readyState === 4 && xhr.status === 200) {
+
+                    // Here we stop the timer & register end time
+                    endTime = (new Date()).getTime();
+
+                    // Also, calculate the file-size which has transferred
+                    fileSize = xhr.responseText.length;
+
+                    // Calculate the connection-speed
+                    var speed = (fileSize * 8) / ((endTime - startTime)/1000) / 1024;
+
+                    // Report the result, or have fries with it...
+                    console.log(speed + " Kbps\n");
+                }
+            }
+
+            // Snap back; here's where we start the timer
+            startTime = (new Date()).getTime();
+
+            // All set, let's hit it!
+            xhr.open("GET", "img/hotel-1.jpg", true);
+            xhr.send();
         </script>
     </body>
 </html>
